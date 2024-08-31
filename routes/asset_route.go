@@ -8,6 +8,6 @@ import (
 )
 
 func AssetRoute(router *gin.Engine, db *leveldb.DB) {
-	router.GET("/assets", controllers.GetAssets(db))
-	router.POST("/assets", controllers.CreateAsset(db))
+	router.GET("/api/assets", controllers.GetAssets(db))
+	router.POST("/api/assets", controllers.CreateAsset(db))
 }
