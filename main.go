@@ -1,12 +1,10 @@
 package main
 
 import (
-	// Add required Go packages
-	"github.com/gin-gonic/gin"
-
-	// Add the MongoDB driver packages
 	"assetdog/database"
 	"assetdog/routes"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {

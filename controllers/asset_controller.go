@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 	"github.com/syndtr/goleveldb/leveldb"
 )
 
@@ -41,14 +42,20 @@ func CreateAsset(db *leveldb.DB) gin.HandlerFunc {
 		j := make(map[string]interface{})
 		json.Unmarshal(jd, &j)
 
-		if _, ok := j["source"]; !ok {
-			c.JSON(400, gin.H{
-				"message": "Source is required",
-			})
-			return
+		// if id is not provided, generate a new one
+		if _, ok := j["id"]; !ok {
+			j["id"] = uuid.New().String()
 		}
 
-		err = db.Put([]byte(j["source"].(string)), []byte(jd), nil)
+		// if in need of required fields
+		// if _, ok := j["name"]; !ok {
+		// 	c.JSON(400, gin.H{
+		// 		"message": "Name is required",
+		// 	})
+		// 	return
+		// }
+
+		err = db.Put([]byte(j["id"].(string)), []byte(jd), nil)
 		if err != nil {
 			c.JSON(500, gin.H{
 				"message": "Error creating asset",
