@@ -1,4 +1,4 @@
-module assetdog
+module levelasset
 
 go 1.23.0
 

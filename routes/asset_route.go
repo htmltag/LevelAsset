@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"assetdog/controllers"
+	"levelasset/controllers"
 
 	"github.com/gin-gonic/gin"
 	"github.com/syndtr/goleveldb/leveldb"

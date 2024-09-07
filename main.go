@@ -1,8 +1,8 @@
 package main
 
 import (
-	"assetdog/database"
-	"assetdog/routes"
+	"levelasset/database"
+	"levelasset/routes"
 
 	"github.com/gin-gonic/gin"
 )
